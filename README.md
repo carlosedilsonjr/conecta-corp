@@ -2,6 +2,16 @@
 
 A modern, user-friendly multi-step form built with React. This project demonstrates how to create an intuitive form workflow that breaks down complex data collection into manageable steps.
 
+## 🌟 Preview
+
+### Desktop Preview
+![image](./src/assets/desktop-preview.png)
+
+### Mobile Preview
+<div align="center">
+  <img src="./src/assets/mobile-preview.png" alt="Project Preview" width="250"/>
+</div>
+
 ## 🎯 Features
 
 - Step-by-step form progression
@@ -50,12 +60,3 @@ npm run dev
 - `npm run dev` - Runs the app in development mode
 - `npm run build` - Builds the app for production
 - `npm run preview` - Preview the production build locally
-
-## 💡 Implementation Details
-
-The form is implemented using a step-based architecture where:
-- Each step is a separate component for better maintenance
-- Form state is managed consistently across steps
-- Progress is visually indicated to users
-- Validation occurs before proceeding to next steps
-- Responsive design ensures usability on all devices
