@@ -1,19 +1,42 @@
+import type { FormData } from '../types'
 import { AddressForm } from './AddressForm'
-import { PersonalInfoForm } from './PeersonalInfoForm'
+import ConfirmationForm from './ConfirmationForm'
+import { PersonalInfoForm } from './PersonalInfoForm'
+import PreferencesForm from './PreferencesForm'
+import ProfessionalInfoForm from './ProfessionalInfoForm'
 
 interface FormProps {
   step: number
   changeStep: (step: number) => void
+  formData: FormData
+  setFormData: (data: Partial<FormData>) => void
+  onSubmit: () => void
 }
 
-export function Form({ step, changeStep }: FormProps) {
+export function Form({
+  step,
+  changeStep,
+  formData,
+  setFormData,
+  onSubmit,
+}: FormProps) {
   return (
     <div className='flex grow flex-col justify-between'>
-      {step === 1 && <PersonalInfoForm />}
-      {step === 2 && <AddressForm />}
-      {step === 3 && <PersonalInfoForm />}
-      {step === 4 && <PersonalInfoForm />}
-      {step === 5 && <PersonalInfoForm />}
+      {step === 1 && (
+        <PersonalInfoForm formData={formData} setFormData={setFormData} />
+      )}
+      {step === 2 && (
+        <AddressForm formData={formData} setFormData={setFormData} />
+      )}
+      {step === 3 && (
+        <ProfessionalInfoForm formData={formData} setFormData={setFormData} />
+      )}
+      {step === 4 && (
+        <PreferencesForm formData={formData} setFormData={setFormData} />
+      )}
+      {step === 5 && (
+        <ConfirmationForm formData={formData} onSubmit={onSubmit} />
+      )}
 
       <button
         type='button'

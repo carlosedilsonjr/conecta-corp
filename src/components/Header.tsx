@@ -3,7 +3,7 @@ interface HeaderProps {
   changeStep: (step: number) => void
 }
 
-const stepVariant = {
+const stepVariant: { [key: number]: string } = {
   '1': 'after:w-[0%]',
   '2': 'after:w-[25%]',
   '3': 'after:w-[50%]',
@@ -21,10 +21,9 @@ export function Header({ step, changeStep }: HeaderProps) {
   ]
 
   function checkStepMarker(markerNumber: number) {
-    if (step === markerNumber) return 'bg-yellow-500'
     if (step > markerNumber) return 'bg-green-500'
 
-    return 'bg-zinc-500'
+    return 'bg-zinc-300'
   }
 
   return (
@@ -48,19 +47,19 @@ export function Header({ step, changeStep }: HeaderProps) {
         className={`${stepVariant[step]} relative mt-8 mb-4 flex h-1 w-full rounded-full bg-zinc-300 after:left-0 after:rounded-full after:bg-green-500`}
       >
         <div
-          className={`-translate-x-1/2 -translate-y-1/3 absolute left-[0%] h-3 w-3 rounded-full ${stepMarkerVariant[0]}`}
+          className={`-translate-x-1/2 -translate-y-[30%] absolute left-[0%] h-2 w-2 rounded-full ${stepMarkerVariant[0]}`}
         />
         <div
-          className={`-translate-x-1/2 -translate-y-1/3 absolute left-[25%] h-3 w-3 rounded-full ${stepMarkerVariant[1]}`}
+          className={`-translate-x-1/2 -translate-y-[30%] absolute left-[25%] h-2 w-2 rounded-full ${stepMarkerVariant[1]}`}
         />
         <div
-          className={`-translate-x-1/2 -translate-y-1/3 absolute left-[50%] h-3 w-3 rounded-full ${stepMarkerVariant[2]}`}
+          className={`-translate-x-1/2 -translate-y-[30%] absolute left-[50%] h-2 w-2 rounded-full ${stepMarkerVariant[2]}`}
         />
         <div
-          className={`-translate-x-1/2 -translate-y-1/3 absolute left-[75%] h-3 w-3 rounded-full ${stepMarkerVariant[3]}`}
+          className={`-translate-x-1/2 -translate-y-[30%] absolute left-[75%] h-2 w-2 rounded-full ${stepMarkerVariant[3]}`}
         />
         <div
-          className={`-translate-x-1/2 -translate-y-1/3 absolute left-[100%] h-3 w-3 rounded-full ${stepMarkerVariant[4]}`}
+          className={`-translate-x-1/2 -translate-y-[30%] absolute left-[100%] h-2 w-2 rounded-full ${stepMarkerVariant[4]}`}
         />
         <div
           className={`-translate-x-1/2 -translate-y-1/2 absolute left-1/2 h-8 w-8 overflow-hidden rounded-full ${stepMarkerVariant[5]}`}
