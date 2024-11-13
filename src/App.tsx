@@ -1,34 +1,23 @@
 import { useState } from 'react'
 import './App.css'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Form } from './components/Form'
+import { Header } from './components/Header'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentStep, setCurrentStep] = useState(1)
+
+  function changeStep(step: number) {
+    if (step < 1 || step > 5) return
+
+    setCurrentStep(step)
+  }
 
   return (
-    <>
-      <div>
-        <a href='https://vite.dev' target='_blank' rel='noreferrer'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank' rel='noreferrer'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <button type='button' onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p className='font-bold text-3xl underline'>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className='read-the-docs'>
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='flex h-screen w-screen flex-col'>
+      <Header step={currentStep} changeStep={changeStep} />
+
+      <Form step={currentStep} changeStep={changeStep} />
+    </div>
   )
 }
 
