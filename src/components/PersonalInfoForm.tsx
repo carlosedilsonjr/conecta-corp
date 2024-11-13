@@ -36,8 +36,8 @@ export function PersonalInfoForm({ formData, setFormData, nextStep }: PersonalIn
   }
 
   return (
-    <form onSubmit={handleSubmit} className='mt-8 flex h-full flex-col justify-between'>
-      <h1 className='font-bold text-lg'>Personal Information</h1>
+    <form onSubmit={handleSubmit} className='mt-8 flex h-full flex-col justify-between lg:h-fit'>
+      <h1 className='font-bold text-lg lg:mb-8'>Personal Information</h1>
 
       <div className='flex w-full flex-col items-start gap-1 px-4'>
         <label htmlFor='fullName' className='text-sm'>
@@ -48,7 +48,7 @@ export function PersonalInfoForm({ formData, setFormData, nextStep }: PersonalIn
           name='fullName'
           value={formData.fullName || ''}
           onChange={handleChange}
-          className='h-9 w-full rounded border shadow'
+          className='h-9 w-full rounded border shadow lg:mb-6'
         />
         {errors.fullName && <p className='text-red-500 text-xs'>{errors.fullName}</p>}
 
@@ -60,7 +60,7 @@ export function PersonalInfoForm({ formData, setFormData, nextStep }: PersonalIn
           name='email'
           value={formData.email || ''}
           onChange={handleChange}
-          className='h-9 w-full rounded border shadow'
+          className='h-9 w-full rounded border shadow lg:mb-6'
         />
         {errors.email && <p className='text-red-500 text-xs'>{errors.email}</p>}
 
@@ -72,7 +72,7 @@ export function PersonalInfoForm({ formData, setFormData, nextStep }: PersonalIn
           name='phone'
           value={formData.phone || ''}
           onChange={handleChange}
-          className='h-9 w-full rounded border shadow'
+          className='h-9 w-full rounded border shadow lg:mb-6'
         />
         {errors.phone && <p className='text-red-500 text-xs'>{errors.phone}</p>}
 
@@ -84,7 +84,7 @@ export function PersonalInfoForm({ formData, setFormData, nextStep }: PersonalIn
           name='dateBirth'
           value={formData.dateBirth || ''}
           onChange={handleChange}
-          className='h-9 w-full rounded border shadow'
+          className='h-9 w-full rounded border shadow lg:mb-6'
         />
         {errors.dateBirth && <p className='text-red-500 text-xs'>{errors.dateBirth}</p>}
       </div>

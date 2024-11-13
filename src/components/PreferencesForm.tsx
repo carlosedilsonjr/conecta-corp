@@ -33,11 +33,11 @@ export default function PreferencesForm({ formData, setFormData, nextStep }: Pre
   }
 
   return (
-    <form onSubmit={handleSubmit} className='mt-8 flex h-full flex-col justify-between'>
-      <h1 className='font-bold text-lg'>Preferences</h1>
+    <form onSubmit={handleSubmit} className='mt-8 flex h-full flex-col justify-between lg:h-fit'>
+      <h1 className='font-bold text-lg lg:mb-8'>Preferences</h1>
 
       <div className='flex w-full flex-col items-start gap-1 px-4'>
-        <label htmlFor='products' className='text-sm'>
+        <label htmlFor='products' className='text-sm lg:mt-6'>
           Products
         </label>
         <input
@@ -49,7 +49,7 @@ export default function PreferencesForm({ formData, setFormData, nextStep }: Pre
         />
         {errors.products && <p className='text-red-500 text-xs'>{errors.products}</p>}
 
-        <label htmlFor='findOut' className='text-sm'>
+        <label htmlFor='findOut' className='text-sm lg:mt-6'>
           Find out
         </label>
         <input

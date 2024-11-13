@@ -45,11 +45,11 @@ export function AddressForm({ formData, setFormData, nextStep }: AddressFormProp
   }
 
   return (
-    <form onSubmit={handleSubmit} className='mt-8 flex h-full flex-col justify-between'>
-      <h1 className='font-bold text-lg'>Address Information</h1>
+    <form onSubmit={handleSubmit} className='mt-8 flex h-full flex-col justify-between lg:h-fit'>
+      <h1 className='font-bold text-lg lg:mb-6'>Address Information</h1>
 
       <div className='flex w-full flex-col items-start gap-1 px-4'>
-        <label htmlFor='country' className='text-sm'>
+        <label htmlFor='country' className='text-sm '>
           Country
         </label>
         <input

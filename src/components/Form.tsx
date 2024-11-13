@@ -15,7 +15,7 @@ interface FormProps {
 
 export function Form({ step, changeStep, formData, setFormData, onSubmit }: FormProps) {
   return (
-    <div className='flex grow flex-col justify-between'>
+    <div className='flex grow flex-col justify-between lg:justify-center'>
       {step === 1 && <PersonalInfoForm formData={formData} setFormData={setFormData} nextStep={changeStep} />}
       {step === 2 && <AddressForm formData={formData} setFormData={setFormData} nextStep={changeStep} />}
       {step === 3 && <ProfessionalInfoForm formData={formData} setFormData={setFormData} nextStep={changeStep} />}

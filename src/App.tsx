@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { Form } from './components/Form'
 import { Header } from './components/Header'
+import { Sidebar } from './components/Sidebar'
 import { type FormData, FormDataDefaultValues } from './types'
 
 function App() {
@@ -36,16 +37,24 @@ function App() {
   }
 
   return (
-    <div className='flex h-screen w-screen flex-col'>
-      <Header step={currentStep} changeStep={changeStep} />
+    <div className='flex h-screen w-screen flex-col lg:flex-row lg:justify-evenly'>
+      <div className='hidden lg:block'>
+        <Sidebar currentStep={currentStep} />
+      </div>
 
-      <Form
-        step={currentStep}
-        changeStep={changeStep}
-        formData={formData}
-        setFormData={handleFormDataChange}
-        onSubmit={handleSubmit}
-      />
+      <div className='flex grow flex-col lg:p-8'>
+        <div className=''>
+          <Header step={currentStep} changeStep={changeStep} />
+        </div>
+
+        <Form
+          step={currentStep}
+          changeStep={changeStep}
+          formData={formData}
+          setFormData={handleFormDataChange}
+          onSubmit={handleSubmit}
+        />
+      </div>
     </div>
   )
 }

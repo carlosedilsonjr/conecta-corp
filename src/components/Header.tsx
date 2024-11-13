@@ -32,7 +32,7 @@ export function Header({ step, changeStep }: HeaderProps) {
         {step !== 1 ? (
           <button
             type='button'
-            className='flex items-center justify-center rounded-md bg-zinc-200 px-2 py-1 text-sm'
+            className='flex items-center justify-center rounded-md bg-zinc-200 px-2 py-1 text-sm lg:px-6 lg:font-semibold lg:text-lg'
             onClick={() => changeStep(step - 1)}
           >
             Back
@@ -40,11 +40,18 @@ export function Header({ step, changeStep }: HeaderProps) {
         ) : (
           <div />
         )}
-        <p className='flex items-center justify-center rounded-md bg-zinc-200 px-2 py-1 text-xs'>Steps {step}/5</p>
+        <p className='flex items-center justify-center rounded-md bg-zinc-200 px-2 py-1 text-xs lg:hidden'>
+          Steps {step}/5
+        </p>
+
+        <div className='hidden lg:flex lg:items-center lg:gap-4'>
+          <span className='font-semibold text-lg'>Need help?</span>
+          <img src='https://github.com/carlosedilsonjr.png' alt='profile avatar' className='h-12 w-12 rounded-full' />
+        </div>
       </div>
 
       <div
-        className={`${stepVariant[step]} relative mt-8 mb-4 flex h-1 w-full rounded-full bg-zinc-300 after:left-0 after:rounded-full after:bg-green-500`}
+        className={`${stepVariant[step]} relative mt-8 mb-4 flex h-1 w-full rounded-full bg-zinc-300 after:left-0 after:rounded-full after:bg-green-500 lg:hidden`}
       >
         <div
           className={`-translate-x-1/2 -translate-y-[30%] absolute left-[0%] h-2 w-2 rounded-full ${stepMarkerVariant[0]}`}

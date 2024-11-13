@@ -36,11 +36,11 @@ export default function ProfessionalInfoForm({ formData, setFormData, nextStep }
   }
 
   return (
-    <form onSubmit={handleSubmit} className='mt-8 flex h-full flex-col justify-between'>
-      <h1 className='font-bold text-lg'>Professional Information</h1>
+    <form onSubmit={handleSubmit} className='mt-8 flex h-full flex-col justify-between lg:h-fit'>
+      <h1 className='font-bold text-lg lg:mb-8'>Professional Information</h1>
 
       <div className='flex w-full flex-col items-start gap-1 px-4'>
-        <label htmlFor='role' className='text-sm'>
+        <label htmlFor='role' className='text-sm lg:mt-6'>
           Role
         </label>
         <input
@@ -52,7 +52,7 @@ export default function ProfessionalInfoForm({ formData, setFormData, nextStep }
         />
         {errors.role && <p className='text-red-500 text-sm'>{errors.role}</p>}
 
-        <label htmlFor='companyName' className='text-sm'>
+        <label htmlFor='companyName' className='text-sm lg:mt-6'>
           Company Name
         </label>
         <input
@@ -64,7 +64,7 @@ export default function ProfessionalInfoForm({ formData, setFormData, nextStep }
         />
         {errors.companyName && <p className='text-red-500 text-sm'>{errors.companyName}</p>}
 
-        <label htmlFor='service' className='text-sm'>
+        <label htmlFor='service' className='text-sm lg:mt-6'>
           Service
         </label>
         <input
@@ -76,7 +76,7 @@ export default function ProfessionalInfoForm({ formData, setFormData, nextStep }
         />
         {errors.service && <p className='text-red-500 text-sm'>{errors.service}</p>}
 
-        <label htmlFor='salary' className='text-sm'>
+        <label htmlFor='salary' className='text-sm lg:mt-6'>
           Salary
         </label>
         <input
