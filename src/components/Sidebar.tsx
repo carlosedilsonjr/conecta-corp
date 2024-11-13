@@ -11,11 +11,12 @@ export function Sidebar({ currentStep }: Props) {
         <h1 className='font-brand2 font-medium text-6xl'>Conecta Corp</h1>
       </header>
 
-      <main className='flex flex-col gap-12'>
+      <main className='flex w-fit flex-col items-start gap-8'>
         <StepLabel step={1} currentStep={currentStep} />
         <StepLabel step={2} currentStep={currentStep} />
         <StepLabel step={3} currentStep={currentStep} />
         <StepLabel step={4} currentStep={currentStep} />
+        <StepLabel step={5} currentStep={currentStep} />
       </main>
 
       <footer>

@@ -10,6 +10,20 @@ export function StepLabel({ step, currentStep }: StepLabelProps) {
     '': 'text-zinc-400',
   }
 
+  const circleVariants = {
+    Completed: 'border-green-600 bg-green-600',
+    'In progress': 'border-blue-600',
+    '': 'border-zinc-400',
+  }
+
+  const titleVariants = {
+    1: 'Personal Information',
+    2: 'Address Information',
+    3: 'Professional Information',
+    4: 'Preferences',
+    5: 'Confirmation',
+  }
+
   const status = () => {
     if (step < currentStep) return 'Completed'
     if (step === currentStep) return 'In progress'
@@ -19,13 +33,11 @@ export function StepLabel({ step, currentStep }: StepLabelProps) {
 
   return (
     <div className='flex items-center justify-center gap-4'>
-      <div className=' flex h-10 w-10 items-center justify-center rounded-full border-2 border-green-500'>
-        <span>icon</span>
-      </div>
+      <div className={`flex h-10 w-10 items-center justify-center rounded-full border-2 ${circleVariants[status()]}`} />
 
-      <div className='flex flex-col items-start border-2'>
+      <div className='flex flex-col items-start'>
         <span className='font-medium text-sm text-zinc-400'>Step {step}</span>
-        <p className=''>Details</p>
+        <p className=''>{titleVariants[step]}</p>
         <span className={`${statusVariant[status()]} font-medium text-xs`}>{status()}</span>
       </div>
     </div>
