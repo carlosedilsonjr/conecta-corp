@@ -37,7 +37,8 @@
       "quoteStyle": "single",
       "lineEnding": "lf",
       "jsxQuoteStyle": "single",
-      "semicolons": "asNeeded"
+      "semicolons": "asNeeded",
+      "lineWidth": 120
     }
   },
   "json": {

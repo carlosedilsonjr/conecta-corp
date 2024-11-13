@@ -21,7 +21,7 @@ export function Header({ step, changeStep }: HeaderProps) {
   ]
 
   function checkStepMarker(markerNumber: number) {
-    if (step > markerNumber) return 'bg-green-500'
+    if (step > markerNumber || markerNumber === 1) return 'bg-green-500'
 
     return 'bg-zinc-300'
   }
@@ -29,18 +29,18 @@ export function Header({ step, changeStep }: HeaderProps) {
   return (
     <header className='p-4'>
       <div className='flex justify-between'>
-        {step !== 1 && (
+        {step !== 1 ? (
           <button
             type='button'
-            className='text-sm'
+            className='flex items-center justify-center rounded-md bg-zinc-200 px-2 py-1 text-sm'
             onClick={() => changeStep(step - 1)}
           >
             Back
           </button>
+        ) : (
+          <div />
         )}
-        <p className='rounded-md bg-zinc-200 px-2 py-1 text-xs'>
-          Steps {step}/5
-        </p>
+        <p className='flex items-center justify-center rounded-md bg-zinc-200 px-2 py-1 text-xs'>Steps {step}/5</p>
       </div>
 
       <div
@@ -64,10 +64,7 @@ export function Header({ step, changeStep }: HeaderProps) {
         <div
           className={`-translate-x-1/2 -translate-y-1/2 absolute left-1/2 h-8 w-8 overflow-hidden rounded-full ${stepMarkerVariant[5]}`}
         >
-          <img
-            src='https://github.com/carlosedilsonjr.png'
-            alt='profile avatar'
-          />
+          <img src='https://github.com/carlosedilsonjr.png' alt='profile avatar' />
         </div>
       </div>
     </header>
