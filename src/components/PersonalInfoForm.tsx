@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { FormData } from '../types'
+import { isAdult } from '../utils/checkYearsOld'
 
 interface PersonalInfoFormProps {
   formData: FormData
@@ -29,8 +30,10 @@ export function PersonalInfoForm({ formData, setFormData, nextStep }: PersonalIn
     if (!formData.email) setErrors((prev) => ({ ...prev, email: 'Email is required' }))
     if (!formData.phone) setErrors((prev) => ({ ...prev, phone: 'Phone is required' }))
     if (!formData.dateBirth) setErrors((prev) => ({ ...prev, dateBirth: 'Birth date is required' }))
+    if (!isAdult(formData.dateBirth)) setErrors((prev) => ({ ...prev, dateBirth: 'You must be 18 years old' }))
 
-    if (!formData.fullName || !formData.email || !formData.phone || !formData.dateBirth) return
+    if (!formData.fullName || !formData.email || !formData.phone || !formData.dateBirth || !isAdult(formData.dateBirth))
+      return
 
     nextStep(2)
   }
@@ -40,7 +43,7 @@ export function PersonalInfoForm({ formData, setFormData, nextStep }: PersonalIn
       <h1 className='font-bold text-lg lg:mb-8'>Personal Information</h1>
 
       <div className='flex w-full flex-col items-start gap-1 px-4'>
-        <label htmlFor='fullName' className='text-sm'>
+        <label htmlFor='fullName' className='text-sm lg:mt-6'>
           Full name
         </label>
         <input
@@ -48,11 +51,11 @@ export function PersonalInfoForm({ formData, setFormData, nextStep }: PersonalIn
           name='fullName'
           value={formData.fullName || ''}
           onChange={handleChange}
-          className='h-9 w-full rounded border shadow lg:mb-6'
+          className='h-9 w-full rounded border shadow'
         />
         {errors.fullName && <p className='text-red-500 text-xs'>{errors.fullName}</p>}
 
-        <label htmlFor='email' className='text-sm'>
+        <label htmlFor='email' className='text-sm lg:mt-6'>
           Email
         </label>
         <input
@@ -60,11 +63,11 @@ export function PersonalInfoForm({ formData, setFormData, nextStep }: PersonalIn
           name='email'
           value={formData.email || ''}
           onChange={handleChange}
-          className='h-9 w-full rounded border shadow lg:mb-6'
+          className='h-9 w-full rounded border shadow'
         />
         {errors.email && <p className='text-red-500 text-xs'>{errors.email}</p>}
 
-        <label htmlFor='phone' className='text-sm'>
+        <label htmlFor='phone' className='text-sm lg:mt-6'>
           Phone
         </label>
         <input
@@ -72,11 +75,11 @@ export function PersonalInfoForm({ formData, setFormData, nextStep }: PersonalIn
           name='phone'
           value={formData.phone || ''}
           onChange={handleChange}
-          className='h-9 w-full rounded border shadow lg:mb-6'
+          className='h-9 w-full rounded border shadow'
         />
         {errors.phone && <p className='text-red-500 text-xs'>{errors.phone}</p>}
 
-        <label htmlFor='dateBirth' className='text-sm'>
+        <label htmlFor='dateBirth' className='text-sm lg:mt-6'>
           Date of Birth
         </label>
         <input
@@ -84,7 +87,7 @@ export function PersonalInfoForm({ formData, setFormData, nextStep }: PersonalIn
           name='dateBirth'
           value={formData.dateBirth || ''}
           onChange={handleChange}
-          className='h-9 w-full rounded border shadow lg:mb-6'
+          className='h-9 w-full rounded border shadow'
         />
         {errors.dateBirth && <p className='text-red-500 text-xs'>{errors.dateBirth}</p>}
       </div>
