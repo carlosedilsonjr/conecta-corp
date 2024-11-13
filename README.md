@@ -1,50 +1,61 @@
-# React + TypeScript + Vite
+# Simple Multi-step Form React Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, user-friendly multi-step form built with React. This project demonstrates how to create an intuitive form workflow that breaks down complex data collection into manageable steps.
 
-Currently, two official plugins are available:
+## 🎯 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Step-by-step form progression
+- Form state management
+- Validation between steps
+- Responsive design
+- Clean and modern UI using Tailwind CSS
 
-## Expanding the ESLint configuration
+## 🚀 Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **[Vite](https://vitejs.dev/)**: Selected as the build tool for its exceptional development experience and fast refresh capabilities, making form development and testing quick and efficient.
 
-- Configure the top-level `parserOptions` property like this:
+- **[Biome.js](https://biomejs.dev/)**: Ensures consistent code formatting and catches potential issues early in development. Its fast performance and comprehensive toolset help maintain high code quality across form components.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **[Tailwind CSS](https://tailwindcss.com/)**: Enables rapid styling of form components with utility classes, making it easy to create a responsive and visually appealing form interface while maintaining consistency.
+
+## 🛠️ Getting Started
+
+### Prerequisites
+
+* **Node.js** installed on your machine.
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/carlosedilsonjr/conecta-corp
+
+# Navigate to project directory
+cd conecta-corp
+
+# Install dependencies
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Development
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+To start the development server:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm run dev
 ```
+
+## 📝 Available Scripts
+
+- `npm run dev` - Runs the app in development mode
+- `npm run build` - Builds the app for production
+- `npm run preview` - Preview the production build locally
+
+## 💡 Implementation Details
+
+The form is implemented using a step-based architecture where:
+- Each step is a separate component for better maintenance
+- Form state is managed consistently across steps
+- Progress is visually indicated to users
+- Validation occurs before proceeding to next steps
+- Responsive design ensures usability on all devices
